@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/09/12/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>任务执行</title>
+    <url>/2020/09/14/%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/</url>
+    <content><![CDATA[<h2 id="1-TaskManager上算子运行"><a href="#1-TaskManager上算子运行" class="headerlink" title="1.TaskManager上算子运行"></a>1.TaskManager上算子运行</h2><p>（1）可以同时执行多个任务<br>（2）每个TaskManager可以有多个Slot<br>（3）每个Slot可执行过高算子，但是每个Slot中只能有一个同样的算子<br>（4）TaskManager中的多个任务可以在同一个进程内高兴第执行，数据交换无需访问网络<br>（5）任务过于集中，使得TaskManager负载过高，从而导致性能下降<br>（6）后面控制任务调度会讲到</p>
+<h2 id="2-TaskManager运行"><a href="#2-TaskManager运行" class="headerlink" title="2.TaskManager运行"></a>2.TaskManager运行</h2><p>（1）TaskManager会在同一个JVM进程内以多线程方式执行任务<br>（2）和独立进程相比，线程更加轻量级并且通信开销更低<br>（3）但是无法严格隔离任务<br>（4）只要有一个任务运行异常，就可能沙溪TaskManager，导致TaskManager上的所有任务失败<br>（5）可以将TaskManager配置成一个TaskManager有一个Slot<br>（6）通过在TaskManager内部采用线性并行级每个主机上多部署TaskManager</p>
+]]></content>
+      <categories>
+        <category>Flink</category>
+      </categories>
+      <tags>
+        <tag>Flink scala</tag>
+      </tags>
+  </entry>
+</search>
